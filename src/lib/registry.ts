@@ -96,9 +96,9 @@ export const REGISTRY: AppLink[] = [
   {
     id: "album",
     repo: "Album-Journal",
-    label: "影集",
-    blurb: "相册 / 影像日志",
-    icon: "📷",
+    label: "专辑收藏",
+    blurb: "音乐专辑 / 唱片收藏",
+    icon: "💿",
     url: at("Album-Journal"),
   },
 ];

@@ -1,0 +1,342 @@
+:root {
+  --bg: #f4f1ea;
+  --surface: #fbf9f4;
+  --surface-2: #ece6da;
+  --text: #1c1a17;
+  --muted: #6f6a60;
+  --brass: #b08d57;
+  --brass-dim: #c9b08a;
+  --line: rgba(28, 26, 23, 0.16);
+  --ok: #5f7a52;
+  --err: #a23b2e;
+  --warn: #b07a2e;
+  --radius: 10px;
+  --mono: "SFMono-Regular", ui-monospace, Menlo, Consolas, monospace;
+  --sans: system-ui, -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif;
+  /* 安全区 */
+  --sat: env(safe-area-inset-top, 0px);
+  --sab: env(safe-area-inset-bottom, 0px);
+  --sal: env(safe-area-inset-left, 0px);
+  --sar: env(safe-area-inset-right, 0px);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #15140f;
+    --surface: #1e1c16;
+    --surface-2: #28251d;
+    --text: #ece7da;
+    --muted: #9a9486;
+    --line: rgba(236, 231, 218, 0.16);
+    --brass: #c9a86a;
+    --brass-dim: #8a7647;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* ---- 顶栏 ---- */
+.top {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: calc(0.7rem + var(--sat)) calc(1rem + var(--sar)) 0.7rem calc(1rem + var(--sal));
+  background: color-mix(in oklab, var(--bg) 86%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+.ring {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  border: 2px solid var(--brass);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--brass);
+}
+.grow {
+  flex: 1;
+}
+.mono {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+.linkbtn {
+  background: none;
+  border: 0;
+  color: var(--brass);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.9rem;
+  padding: 0.4rem;
+  min-height: 44px;
+}
+
+/* ---- 主区 ---- */
+main {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 1.1rem calc(1rem + var(--sar)) calc(2rem + var(--sab)) calc(1rem + var(--sal));
+}
+main.has-savebar {
+  padding-bottom: calc(6rem + var(--sab));
+}
+h1.page,
+h2.sec {
+  font-size: 1.25rem;
+  margin: 0 0 0.2rem;
+}
+.hint {
+  color: var(--muted);
+  font-size: 0.86rem;
+  margin: 0.3rem 0 0.9rem;
+}
+.crumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.7rem;
+  flex-wrap: wrap;
+}
+.crumbs button {
+  background: none;
+  border: 0;
+  color: var(--brass);
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+}
+
+/* ---- 卡片 ---- */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* ---- 库网格 ---- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.8rem;
+}
+.dbcard {
+  text-align: left;
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem;
+  cursor: pointer;
+  font: inherit;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  min-height: 116px;
+  transition: border-color 0.15s, transform 0.08s;
+}
+.dbcard .fpath {
+  margin-top: auto;
+  padding-top: 0.3rem;
+  color: var(--brass);
+}
+.dbcard:hover {
+  border-color: var(--brass);
+}
+.dbcard:active {
+  transform: scale(0.985);
+}
+.dbcard .ico {
+  font-size: 1.6rem;
+}
+.dbcard .name {
+  font-weight: 600;
+}
+.dbcard .blurb {
+  color: var(--muted);
+  font-size: 0.8rem;
+  line-height: 1.35;
+}
+
+/* ---- 文件列表 ---- */
+.filelist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.filerow {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.75rem 0.9rem;
+  cursor: pointer;
+  font: inherit;
+  color: var(--text);
+  text-align: left;
+  min-height: 44px;
+}
+.filerow:hover {
+  border-color: var(--brass);
+}
+.filerow .fname {
+  font-weight: 600;
+}
+.filerow .fpath {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+}
+.tag {
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--brass);
+  border: 1px solid var(--brass-dim);
+  border-radius: 4px;
+  padding: 0.1rem 0.35rem;
+}
+
+/* ---- 表单 ---- */
+label {
+  display: block;
+  font-size: 0.88rem;
+  margin: 0.7rem 0 0.25rem;
+}
+input[type="text"],
+input[type="password"],
+textarea,
+select {
+  width: 100%;
+  font: inherit;
+  font-size: 16px; /* iOS 防聚焦缩放 */
+  padding: 0.6rem 0.7rem;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--text);
+  min-height: 44px;
+}
+textarea.code {
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.5;
+  resize: vertical;
+  min-height: 50vh;
+  white-space: pre;
+  tab-size: 2;
+}
+
+/* ---- 按钮 ---- */
+button.btn {
+  font: inherit;
+  cursor: pointer;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+  color: var(--text);
+  min-height: 44px;
+}
+button.btn.primary {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: #fff;
+  font-weight: 600;
+}
+button.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---- 状态 ---- */
+.status {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  min-height: 1em;
+}
+.status.ok {
+  color: var(--ok);
+}
+.status.err {
+  color: var(--err);
+}
+.status.warn {
+  color: var(--warn);
+}
+
+/* ---- 底部保存条（避让 home indicator）---- */
+.savebar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem calc(1rem + var(--sar)) calc(0.7rem + var(--sab)) calc(1rem + var(--sal));
+  background: color-mix(in oklab, var(--bg) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--line);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  align-items: end;
+}
+.field-grow {
+  flex: 1;
+  min-width: 140px;
+}
+
+.empty {
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 1.5rem 0;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}

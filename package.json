@@ -1,0 +1,19 @@
+{
+  "name": "personal-hub-admin",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "NickkkLian 个人数据库导航/管理站 — 纯静态 SPA，运行时调 GitHub Contents API，产物零密钥",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "preact": "^10.25.4"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3",
+    "vite": "^8.0.16"
+  }
+}

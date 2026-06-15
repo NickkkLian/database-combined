@@ -1,0 +1,7 @@
+node_modules
+dist
+.DS_Store
+# 铁律：本仓库只存代码，绝不含任何数据文件 / 令牌 / 环境变量
+.env
+.env.*
+*.local

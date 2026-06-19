@@ -1,4 +1,4 @@
-// 门户注册表 —— 站长在 GitHub Pages 上已部署的 11 个数据库 / 工具 web app。
+// 门户注册表 —— 站长在 GitHub Pages 上已部署的 12 个数据库 / 工具 web app。
 // 全部在 https://nickkklian.github.io 同一 origin 下，因此与导航站共享同一份 localStorage。
 // 导航站不读写数据、不碰各 app 的 repo/path；只负责链接它们 + 写入共享 owner/token。
 
@@ -108,5 +108,13 @@ export const REGISTRY: AppLink[] = [
     blurb: "图文整理 · 自动分类收藏",
     icon: "📕",
     url: at("xhs-organizer"),
+  },
+  {
+    id: "bili",
+    repo: "bilibili-organizer",
+    label: "B站归档",
+    blurb: "视频整理 · 按分区归档",
+    icon: "📺",
+    url: at("bilibili-organizer"),
   },
 ];

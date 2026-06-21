@@ -117,4 +117,12 @@ export const REGISTRY: AppLink[] = [
     icon: "📺",
     url: at("bilibili-organizer"),
   },
+  {
+    id: "storage",
+    repo: "Storage-Tracker",
+    label: "暂存库存",
+    blurb: "各处暂存物品 · 地址/数量/图片",
+    icon: "📦",
+    url: at("Storage-Tracker"),
+  },
 ];

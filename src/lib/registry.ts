@@ -157,6 +157,16 @@ export const REGISTRY: AppLink[] = [
     url: at("Storage-Tracker"),
   },
   {
+    id: "mail",
+    repo: "Mail-Sorter",
+    label: "邮件分拣台",
+    labelEn: "Mail Sorter",
+    blurb: "Gmail 自动分类打标 · 每日摘要",
+    blurbEn: "Auto-labels Gmail daily · digest",
+    icon: "📮",
+    url: at("Mail-Sorter"),
+  },
+  {
     id: "jobtracker",
     repo: "Job-Tracker",
     label: "求职追踪",

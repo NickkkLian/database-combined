@@ -167,6 +167,16 @@ export const REGISTRY: AppLink[] = [
     url: at("Mail-Sorter"),
   },
   {
+    id: "people",
+    repo: "People-Atlas",
+    label: "人力资源",
+    labelEn: "People Atlas",
+    blurb: "量化朋友 · 工作/创业人脉打分",
+    blurbEn: "Friends & network, scored",
+    icon: "🤝",
+    url: at("People-Atlas"),
+  },
+  {
     id: "jobtracker",
     repo: "Job-Tracker",
     label: "求职追踪",

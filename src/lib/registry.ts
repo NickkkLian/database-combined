@@ -187,6 +187,16 @@ export const REGISTRY: AppLink[] = [
     url: at("Job-Tracker"),
   },
   {
+    id: "mediaops",
+    repo: "Media-Ops",
+    label: "媒体台账",
+    labelEn: "Media Ops",
+    blurb: "自媒体账号 · 风格/workflow/成本收益",
+    blurbEn: "Media accounts · style/workflow/P&L",
+    icon: "📣",
+    url: at("Media-Ops"),
+  },
+  {
     id: "siteadmin",
     repo: "personal-hub",
     label: "网站后台",

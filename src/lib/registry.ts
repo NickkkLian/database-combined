@@ -197,6 +197,16 @@ export const REGISTRY: AppLink[] = [
     url: at("Media-Ops"),
   },
   {
+    id: "toronto",
+    repo: "Toronto-Plan",
+    label: "多伦多计划",
+    labelEn: "Toronto Plan",
+    blurb: "六线追踪 · 现金流/里程碑/检查点",
+    blurbEn: "Six-line tracker · cashflow/milestones/checkpoints",
+    icon: "🍁",
+    url: at("Toronto-Plan"),
+  },
+  {
     id: "siteadmin",
     repo: "personal-hub",
     label: "网站后台",

@@ -197,6 +197,16 @@ export const REGISTRY: AppLink[] = [
     url: at("Toronto-Plan"),
   },
   {
+    id: "toolbox",
+    repo: "Toolbox",
+    label: "工具箱",
+    labelEn: "Toolbox",
+    blurb: "通用知识库 · 文章甄别归档",
+    blurbEn: "Curated knowledge vault",
+    icon: "🧰",
+    url: at("Toolbox"),
+  },
+  {
     id: "siteadmin",
     repo: "personal-hub",
     label: "网站后台",

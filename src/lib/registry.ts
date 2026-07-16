@@ -216,16 +216,4 @@ export const REGISTRY: AppLink[] = [
     icon: "🎛️",
     url: "https://personal-hub-7uc.pages.dev/admin",
   },
-  {
-    // 局域网工具，非 github.io：手机当遥控器发键给 Claude 桌面 app。
-    // 网址是 Mac 的 .local 主机名（IP 变也不变），仅家中同一 Wi-Fi 可达；需先双击 Claude遥控.app。
-    id: "cremote",
-    repo: "claude-remote",
-    label: "Claude 遥控",
-    labelEn: "Claude Remote",
-    blurb: "手机遥控器 · 家中 Wi-Fi · 先开 Claude遥控.app",
-    blurbEn: "Phone remote · home Wi-Fi · start Claude遥控.app first",
-    icon: "📱",
-    url: "http://Nickwonderhow.local:8768/",
-  },
 ];

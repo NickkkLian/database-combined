@@ -343,6 +343,18 @@ button.btn:disabled {
 
 /* 公开数据接入个人网站的标记（站长 2026-07-25 要求）。
    live＝已发布且网站在展示；ready＝已接线但还没上墙。 */
+/* 卡片右上角（站长 2026-07-25：「放右上角好看一点」）。
+   注意只对 .dbcard 内的标记绝对定位——顶部图例里的 .sitetag 仍是行内的，别一起改了。 */
+.dbcard {
+  position: relative;
+}
+.dbcard .sitetag {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.65rem;
+  margin-left: 0;
+  z-index: 1;
+}
 .sitetag {
   display: inline-block;
   margin-left: 0.4rem;

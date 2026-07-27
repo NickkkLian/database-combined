@@ -340,3 +340,31 @@ button.btn:disabled {
 .hidden {
   display: none !important;
 }
+
+/* 公开数据接入个人网站的标记（站长 2026-07-25 要求）。
+   live＝已发布且网站在展示；ready＝已接线但还没上墙。 */
+.sitetag {
+  display: inline-block;
+  margin-left: 0.4rem;
+  padding: 0.05rem 0.4rem;
+  border-radius: 999px;
+  font-size: 0.68rem;
+  font-weight: 500;
+  line-height: 1.5;
+  vertical-align: 1.5px;
+  white-space: nowrap;
+  cursor: help;
+}
+.sitetag.live {
+  background: color-mix(in srgb, var(--brass) 18%, transparent);
+  color: var(--brass);
+  border: 1px solid color-mix(in srgb, var(--brass) 45%, transparent);
+}
+.sitetag.ready {
+  background: color-mix(in srgb, var(--text) 7%, transparent);
+  color: var(--muted, var(--text));
+  border: 1px solid var(--line);
+}
+.hint .sitetag {
+  margin-left: 0.15rem;
+}

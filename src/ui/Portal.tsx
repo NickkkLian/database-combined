@@ -12,10 +12,16 @@ export function Portal({ lang }: { lang: Lang }) {
         {lang === "zh" ? (
           <>
             共 {REGISTRY.length} 个库。已在「连接设置」里配好令牌，点开任意 app 都无需再单独登录。
+            <br />
+            带 <span class="sitetag live">🌐 已上站</span> 的库，公开数据正在个人网站展示；
+            带 <span class="sitetag ready">🌐 已接线</span> 的已配好通道，点「发布公开」后即可上站（鼠标停在标上看具体情况）。
           </>
         ) : (
           <>
             {REGISTRY.length} apps. The token is set in Settings — open any app, no separate login.
+            <br />
+            <span class="sitetag live">🌐 live</span> = its public data is showing on the personal site;
+            <span class="sitetag ready">🌐 wired</span> = the pipe is configured, one «publish» away (hover the tag for details).
           </>
         )}
       </p>
@@ -23,7 +29,25 @@ export function Portal({ lang }: { lang: Lang }) {
         {REGISTRY.map((app) => (
           <a class="dbcard" key={app.id} href={app.url} target="_blank" rel="noopener">
             <span class="ico">{app.icon}</span>
-            <span class="name">{lang === "zh" ? app.label : app.labelEn}</span>
+            <span class="name">
+              {lang === "zh" ? app.label : app.labelEn}
+              {/* 有公开数据接进个人网站的库打个标（站长 2026-07-25 要求）。
+                  live＝已发布且网站在展示；ready＝已接线但还没上墙。悬停看具体原因。 */}
+              {app.site && (
+                <span
+                  class={`sitetag ${app.site}`}
+                  title={(lang === "zh" ? app.siteNote : app.siteNoteEn) ?? ""}
+                >
+                  {app.site === "live"
+                    ? lang === "zh"
+                      ? "🌐 已上站"
+                      : "🌐 live"
+                    : lang === "zh"
+                      ? "🌐 已接线"
+                      : "🌐 wired"}
+                </span>
+              )}
+            </span>
             <span class="blurb">{lang === "zh" ? app.blurb : app.blurbEn}</span>
             <span class="fpath">{app.repo} ↗</span>
           </a>

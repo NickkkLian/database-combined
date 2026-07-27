@@ -20,6 +20,19 @@ export interface AppLink {
   icon: string;
   /** 现网址（顶层打开） */
   url: string;
+  /**
+   * 这个库的公开数据有没有接进个人网站（站长 2026-07-25 要求在卡片上标出来）。
+   * 判据只认两处硬事实，别凭印象填：
+   *   ① personal-hub/sources.config.json 里有没有配这个 app 的 *.public.json
+   *   ② 该文件在不在 Database-Public 仓库里 + 对应模块在 site.config.json 里开没开
+   * - "live"  ＝ 已发布且网站正在展示
+   * - "ready" ＝ 已接线（网站认这个文件），但还没上墙：或没点过「发布公开」、或展厅模块关着
+   * - 不写    ＝ 压根没有公开导出这条路（含隐私铁律里永不公开的那几个）
+   */
+  site?: "live" | "ready";
+  /** 标记的补充说明（鼠标悬停显示），只在 site 有值时用 */
+  siteNote?: string;
+  siteNoteEn?: string;
 }
 
 const BASE = "https://nickkklian.github.io";
@@ -35,6 +48,9 @@ export const REGISTRY: AppLink[] = [
     blurbEn: "Project & dev log",
     icon: "🛠️",
     url: at("Development-Log"),
+    site: "live",
+    siteNote: "已发布 → 网站 /projects 展厅（改了公开项目要跑一次 sync.yml 才上站）",
+    siteNoteEn: "Published, shown at /projects (run sync.yml after changing public entries)",
   },
   {
     id: "writing",
@@ -45,6 +61,9 @@ export const REGISTRY: AppLink[] = [
     blurbEn: "Idea vault · writing",
     icon: "✍️",
     url: at("Creation-Ideas"),
+    site: "ready",
+    siteNote: "网站 /writing 展厅也认这个库的 writing.public.json，但还没点过「发布公开」",
+    siteNoteEn: "The site also reads writing.public.json from here, not published yet",
   },
   {
     id: "investment",
@@ -65,6 +84,9 @@ export const REGISTRY: AppLink[] = [
     blurbEn: "Travel & food log",
     icon: "🌿",
     url: at("Life-Atlas"),
+    site: "ready",
+    siteNote: "网站已接线，等你点「发布公开」；展厅模块目前关着",
+    siteNoteEn: "Wired up, awaiting publish. The site module is currently off",
   },
   {
     id: "business",
@@ -85,6 +107,9 @@ export const REGISTRY: AppLink[] = [
     blurbEn: "Second brain · knowledge",
     icon: "📚",
     url: at("Knowledge-Atlas"),
+    site: "ready",
+    siteNote: "网站已接线，等你点「发布公开」；展厅模块目前关着",
+    siteNoteEn: "Wired up, awaiting publish. The site module is currently off",
   },
   {
     id: "menu",
@@ -95,6 +120,9 @@ export const REGISTRY: AppLink[] = [
     blurbEn: "Recipes / cocktails / baking",
     icon: "🍽️",
     url: at("My-Menu"),
+    site: "ready",
+    siteNote: "网站已接线（只导出菜品类），等你点「发布公开」；家人菜谱永不导出",
+    siteNoteEn: "Wired up (dishes only), awaiting publish. Family recipes are never exported",
   },
   {
     id: "mind",
@@ -105,6 +133,9 @@ export const REGISTRY: AppLink[] = [
     blurbEn: "Thoughts & ideas archive",
     icon: "🧠",
     url: at("Mind-Archive"),
+    site: "live",
+    siteNote: "已发布 thoughts.public.json → 网站 /writing（THOUGHTS）展厅；发布时自动翻译一版中英",
+    siteNoteEn: "Published thoughts.public.json, shown at /writing (auto zh/en translation on publish)",
   },
   {
     id: "mystery",
@@ -115,6 +146,9 @@ export const REGISTRY: AppLink[] = [
     blurbEn: "Detective tricks & concepts",
     icon: "🔮",
     url: at("Mystery-Trick-Archive"),
+    site: "ready",
+    siteNote: "网站已接线，等你点「发布公开」；展厅模块目前关着",
+    siteNoteEn: "Wired up, awaiting publish. The site module is currently off",
   },
   {
     id: "album",
@@ -125,6 +159,9 @@ export const REGISTRY: AppLink[] = [
     blurbEn: "Music albums & records",
     icon: "💿",
     url: at("Album-Journal"),
+    site: "ready",
+    siteNote: "已发布 album-journal.public.json，但网站的专辑墙模块还关着（见 BACKLOG）",
+    siteNoteEn: "Published, but the album-wall module on the site is still off (see BACKLOG)",
   },
   {
     id: "content",

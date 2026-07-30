@@ -254,6 +254,16 @@ export const REGISTRY: AppLink[] = [
     url: at("Script-Archive"),
   },
   {
+    id: "esoterica",
+    repo: "Esoterica",
+    label: "玄学图鉴",
+    labelEn: "Esoterica",
+    blurb: "世界玄学体系 · 元素表与跨体系对照",
+    blurbEn: "World divination systems · symbols & cross-links",
+    icon: "🪬",
+    url: at("Esoterica"),
+  },
+  {
     id: "siteadmin",
     repo: "personal-hub",
     label: "网站后台",

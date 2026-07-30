@@ -244,6 +244,16 @@ export const REGISTRY: AppLink[] = [
     url: at("Toolbox"),
   },
   {
+    id: "script",
+    repo: "Script-Archive",
+    label: "剧本档案",
+    labelEn: "Script Archive",
+    blurb: "剧本杀评分 · 梯队/分类/年度榜",
+    blurbEn: "Murder-mystery ratings · tiers & rankings",
+    icon: "🎭",
+    url: at("Script-Archive"),
+  },
+  {
     id: "siteadmin",
     repo: "personal-hub",
     label: "网站后台",

@@ -76,6 +76,16 @@ export const REGISTRY: AppLink[] = [
     url: at("Investment-Info"),
   },
   {
+    id: "finance",
+    repo: "Personal-Finance",
+    label: "财务库",
+    labelEn: "Finance",
+    blurb: "对账单导入 · 收支与消费分析",
+    blurbEn: "Statement import · spending analysis",
+    icon: "🧾",
+    url: at("Personal-Finance"),
+  },
+  {
     id: "life",
     repo: "Life-Atlas",
     label: "生活",

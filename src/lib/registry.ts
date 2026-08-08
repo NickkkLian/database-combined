@@ -110,7 +110,7 @@ export const REGISTRY: AppLink[] = [
     labelEn: "Idea Lab",
     blurb: "选题与项目实验室",
     blurbEn: "Topics & projects lab",
-    icon: "💼",
+    icon: "🧪",
     url: at("Business-Lab"),
   },
   {
@@ -207,7 +207,7 @@ export const REGISTRY: AppLink[] = [
     labelEn: "Knowledge",
     blurb: "第二大脑 · 知识管理",
     blurbEn: "Second brain · knowledge",
-    icon: "📚",
+    icon: "🗺️",
     url: at("Knowledge-Atlas"),
     site: "ready",
     siteNote: "网站已接线，等你点「发布公开」；展厅模块目前关着",

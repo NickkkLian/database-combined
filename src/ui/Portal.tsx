@@ -1,7 +1,7 @@
 // 门户首页：各数据库 app 的导航卡片。点选在新标签页顶层打开现网址。
 // 同 origin，所以打开后各 app 自动读到共享的 owner+token。中英双语随父级 lang。
 
-import { REGISTRY } from "../lib/registry";
+import { REGISTRY, GROUPS, type AppLink } from "../lib/registry";
 import { t, type Lang } from "../lib/i18n";
 
 export function Portal({ lang }: { lang: Lang }) {
@@ -25,32 +25,51 @@ export function Portal({ lang }: { lang: Lang }) {
           </>
         )}
       </p>
-      <div class="grid">
-        {REGISTRY.map((app) => (
-          <a class="dbcard" key={app.id} href={app.url} target="_blank" rel="noopener">
-            {/* 有公开数据接进个人网站的库打个标（站长 2026-07-25 要求，放卡片右上角）。
-                live＝已发布且网站在展示；ready＝已接线但还没上墙。悬停看具体原因。 */}
-            {app.site && (
-              <span
-                class={`sitetag ${app.site}`}
-                title={(lang === "zh" ? app.siteNote : app.siteNoteEn) ?? ""}
-              >
-                {app.site === "live"
-                  ? lang === "zh"
-                    ? "🌐 已上站"
-                    : "🌐 live"
-                  : lang === "zh"
-                    ? "🌐 已接线"
-                    : "🌐 wired"}
-              </span>
-            )}
-            <span class="ico">{app.icon}</span>
-            <span class="name">{lang === "zh" ? app.label : app.labelEn}</span>
-            <span class="blurb">{lang === "zh" ? app.blurb : app.blurbEn}</span>
-            <span class="fpath">{app.repo} ↗</span>
-          </a>
-        ))}
-      </div>
+      {/* 按组分区。顺序由 GROUPS 决定；空组不渲染标题，免得留个空壳。 */}
+      {GROUPS.map((g) => {
+        const apps = REGISTRY.filter((a) => a.group === g.id);
+        if (!apps.length) return null;
+        return (
+          <section class="dbgroup" key={g.id}>
+            <h2 class="grouphead">
+              {lang === "zh" ? g.label : g.labelEn}
+              <span class="groupcount">{apps.length}</span>
+            </h2>
+            <div class="grid">
+              {apps.map((app) => (
+                <Card app={app} lang={lang} key={app.id} />
+              ))}
+            </div>
+          </section>
+        );
+      })}
     </main>
+  );
+}
+
+function Card({ app, lang }: { app: AppLink; lang: Lang }) {
+  return (
+    <a class="dbcard" href={app.url} target="_blank" rel="noopener">
+      {/* 有公开数据接进个人网站的库打个标（站长 2026-07-25 要求，放卡片右上角）。
+          live＝已发布且网站在展示；ready＝已接线但还没上墙。悬停看具体原因。 */}
+      {app.site && (
+        <span
+          class={`sitetag ${app.site}`}
+          title={(lang === "zh" ? app.siteNote : app.siteNoteEn) ?? ""}
+        >
+          {app.site === "live"
+            ? lang === "zh"
+              ? "🌐 已上站"
+              : "🌐 live"
+            : lang === "zh"
+              ? "🌐 已接线"
+              : "🌐 wired"}
+        </span>
+      )}
+      <span class="ico">{app.icon}</span>
+      <span class="name">{lang === "zh" ? app.label : app.labelEn}</span>
+      <span class="blurb">{lang === "zh" ? app.blurb : app.blurbEn}</span>
+      <span class="fpath">{app.repo} ↗</span>
+    </a>
   );
 }

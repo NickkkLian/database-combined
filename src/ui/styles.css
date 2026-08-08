@@ -153,6 +153,40 @@ h2.sec {
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 0.8rem;
 }
+
+/* ---- 分组分区（2026-08-07）----
+   组标题要能一眼分开，但不能抢卡片的戏：细黄铜横线 + 小号大写字距，不加边框不加底色。 */
+.dbgroup + .dbgroup {
+  margin-top: 1.6rem;
+}
+.grouphead {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0 0 0.75rem;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
+/* 标题右侧一条渐隐横线，把这一组的范围划出来 */
+.grouphead::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(to right, var(--line), transparent);
+}
+.groupcount {
+  font-variant-numeric: tabular-nums;
+  font-size: 0.72rem;
+  letter-spacing: 0;
+  color: var(--brass);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 0.05rem 0.4rem;
+  line-height: 1.5;
+}
 .dbcard {
   text-align: left;
   text-decoration: none;
